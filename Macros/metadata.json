@@ -10,8 +10,8 @@
       "Gumps"
     ],
     "FileName": "Advanced\\Gumps\\extract_hp_alore_gump.py",
-    "Size": 722,
-    "SHA1": "E76E7BB6AAC6258E9C36C86485C22F4729ED1DD9",
+    "Size": 691,
+    "SHA1": "B5E4B803E0C2F7D355A5A68F6D29745CBFC8532B",
     "ModifiedDate": "2022-03-06T01:05:07.9048741+00:00"
   },
   {
@@ -25,8 +25,8 @@
       "Examples"
     ],
     "FileName": "Advanced\\Examples\\external_services.py",
-    "Size": 1150,
-    "SHA1": "6CDA65EAF64584C390985CED6EAA69548A1AFCD8",
+    "Size": 1122,
+    "SHA1": "FBB8523C273F7DAD5817A22F249EBA75F7EAD93D",
     "ModifiedDate": "2022-03-06T01:05:07.9028694+00:00"
   },
   {
@@ -40,8 +40,8 @@
       "Movement"
     ],
     "FileName": "Advanced\\Movement\\faster_run.py",
-    "Size": 678,
-    "SHA1": "5774224E17B72177B4637C9B40C0B5574C9D9B88",
+    "Size": 654,
+    "SHA1": "F0A61FD70D4B489EADAB6FDFDDF67FBE90CD4FBF",
     "ModifiedDate": "2022-03-06T01:05:07.9048741+00:00"
   },
   {
@@ -55,8 +55,8 @@
       "Examples"
     ],
     "FileName": "Advanced\\Examples\\find_items_by_name.py",
-    "Size": 607,
-    "SHA1": "DB3E83C863CD3695B723A8713FBE4C2A6F98E06C",
+    "Size": 581,
+    "SHA1": "1110CAC635D1E4D459A6EDE1B0BA6C526EB38CB7",
     "ModifiedDate": "2022-03-06T01:05:07.9028694+00:00"
   },
   {
@@ -70,8 +70,8 @@
       "Examples"
     ],
     "FileName": "Advanced\\Examples\\hide_all_houses.py",
-    "Size": 447,
-    "SHA1": "8679029AF21D4CAC1B7AB3CE9B6190FEABDE5D7D",
+    "Size": 431,
+    "SHA1": "54C218527F706F2BC18D79C38ADB6C23D3DEB3A2",
     "ModifiedDate": "2022-03-06T01:05:07.9038599+00:00"
   },
   {
@@ -85,8 +85,8 @@
       "Examples"
     ],
     "FileName": "Advanced\\Examples\\linq_enumerate_mobiles.py",
-    "Size": 2073,
-    "SHA1": "3267A4A280275630E9EA5534854F273241191EFF",
+    "Size": 2017,
+    "SHA1": "9B6833C74A35421E85FEB56D30D0DDE7A13A56EE",
     "ModifiedDate": "2022-03-06T01:05:07.9038599+00:00"
   },
   {
@@ -100,8 +100,8 @@
       "Examples"
     ],
     "FileName": "Advanced\\Examples\\playsound_trade_window.py",
-    "Size": 422,
-    "SHA1": "292CA1DE19863C1CC7F7D2E7FCC48DD05DD79C78",
+    "Size": 407,
+    "SHA1": "066EB9DE79C9CD8F612A7722ACAE268842BA0F06",
     "ModifiedDate": "2022-03-06T01:05:07.9038599+00:00"
   },
   {
@@ -115,8 +115,8 @@
       "Sampire"
     ],
     "FileName": "Advanced\\Sampire\\sampire_ai.py",
-    "Size": 9306,
-    "SHA1": "82EB8FEB31C4E871D6394CC002CAEC6846C2DC22",
+    "Size": 9011,
+    "SHA1": "E9C6EB6A67E33961F114421682D9AF0BDE6645D0",
     "ModifiedDate": "2022-03-06T01:05:07.9058739+00:00"
   },
   {
@@ -127,8 +127,8 @@
     "Id": "43a28158-e8d7-4558-99d9-534b7b57fe40",
     "Categories": "Advanced",
     "FileName": "Advanced\\wpfwindowxamllayoutexample.py",
-    "Size": 4518,
-    "SHA1": "62D53F25D3E0207AAF44482749D31634818761FC",
+    "Size": 4373,
+    "SHA1": "7970A3C03EF8A9D95EC83EFDDADC254DD637A89A",
     "ModifiedDate": "2022-03-06T01:05:07.9058739+00:00"
   },
   {
@@ -139,8 +139,8 @@
     "Id": "d5bb848c-031f-4c91-ada0-8eaee74d4096",
     "Categories": "Common",
     "FileName": "Common\\check_durability.py",
-    "Size": 1409,
-    "SHA1": "F3E1BB374BDEA0CB461D28C29112080B4E6C1971",
+    "Size": 1345,
+    "SHA1": "8C90438EFA58517E72BAABD14CC293E405B9C8E1",
     "ModifiedDate": "2022-03-06T01:05:07.9068711+00:00"
   },
   {
@@ -151,8 +151,8 @@
     "Id": "25f53ed6-a8da-4ca2-80fc-dc9e8205150d",
     "Categories": "Common",
     "FileName": "Common\\mobile_query.py",
-    "Size": 455,
-    "SHA1": "E53260F002E43710DF8E34B47CC52E75B0FA02DD",
+    "Size": 436,
+    "SHA1": "6B1D16D48F44592BEF78CF89506705663ED2877A",
     "ModifiedDate": "2022-03-06T01:05:07.9068711+00:00"
   },
   {
@@ -166,8 +166,8 @@
       "Blacksmith"
     ],
     "FileName": "Crafting\\Blacksmith\\AddToDeedCreatedItems.py",
-    "Size": 1349,
-    "SHA1": "EE70164CBD49CEE805ACDE5153BE46FD25A024A9",
+    "Size": 1295,
+    "SHA1": "442059CAE6330502C32C3EAC1E93CAAB21DBCB2F",
     "ModifiedDate": "2022-03-06T01:05:07.9088737+00:00"
   },
   {
@@ -178,8 +178,8 @@
     "Id": "c1cf4379-b520-4aaf-8ada-487e776d75bf",
     "Categories": "Crafting",
     "FileName": "Crafting\\carpentryfrom3to1.py",
-    "Size": 3490,
-    "SHA1": "B2E748333DB44894FFD04ACA654A4B0E2D299C41",
+    "Size": 3385,
+    "SHA1": "57E374134EF8DDEF9A613A33932CF61EBC9AB4DD",
     "ModifiedDate": "2025-06-06T00:21:43.4346453+00:00"
   },
   {
@@ -190,8 +190,8 @@
     "Id": "876af5df-bc1f-43e6-ba2e-f5e4c8ae6f66",
     "Categories": "Crafting",
     "FileName": "Crafting\\HUO-Lumberjacker.py",
-    "Size": 2494,
-    "SHA1": "54F085C117EA68B1B0704342DC93E09DE3F9C3CA",
+    "Size": 2401,
+    "SHA1": "0008589117A5EF6FCD00D5DE61F164CCEA5BA660",
     "ModifiedDate": "2022-03-06T01:05:07.9088737+00:00"
   },
   {
@@ -202,8 +202,8 @@
     "Id": "6a89218b-d33c-4ce4-b6ee-59b876a1779b",
     "Categories": "Crafting",
     "FileName": "Crafting\\makelastsell.py",
-    "Size": 701,
-    "SHA1": "473EF47D8C48F00D5A1DA565984EA3030A600CB5",
+    "Size": 679,
+    "SHA1": "FC3D50B12A1370775AE7C68AA605ABF8D5D51E22",
     "ModifiedDate": "2022-07-06T02:40:20.1061813+00:00"
   },
   {
@@ -217,8 +217,8 @@
       "Alchemy"
     ],
     "FileName": "Crafting\\Alchemy\\potion_crafter.py",
-    "Size": 2640,
-    "SHA1": "4C3EBE2E5D7CACA131C0AAE26D23EE4BB19B29A4",
+    "Size": 2532,
+    "SHA1": "1EF1EE205C3734EDC5B1870AC2CC765D0578A794",
     "ModifiedDate": "2022-03-06T01:05:07.9078730+00:00"
   },
   {
@@ -229,8 +229,8 @@
     "Id": "0291fd7a-3875-4e59-a556-dd57a61e161a",
     "Categories": "Crafting",
     "FileName": "Crafting\\potionmaker.py",
-    "Size": 7062,
-    "SHA1": "F59E3DB9B760CAF1D03397039B78E197978484A5",
+    "Size": 6835,
+    "SHA1": "DB7F328600B4A743D34F79561A024F04401AAD47",
     "ModifiedDate": "2022-03-06T01:05:07.9098735+00:00"
   },
   {
@@ -241,8 +241,8 @@
     "Id": "6ffb6dc7-1f42-40a8-acdc-69fe54d19763",
     "Categories": "Crafting",
     "FileName": "Crafting\\recallminingmargover.py",
-    "Size": 5518,
-    "SHA1": "0F40614850DB134EFFC1AE7982202C620D88D5CC",
+    "Size": 5374,
+    "SHA1": "4E689C3AF6903803C606BEAF6ED74406BD783600",
     "ModifiedDate": "2023-12-23T08:19:03.9827845+00:00"
   },
   {
@@ -253,8 +253,8 @@
     "Id": "64f48a8e-5b6b-4600-9860-e71b061ad7a4",
     "Categories": "Crafting",
     "FileName": "Crafting\\scrollmaker.py",
-    "Size": 8973,
-    "SHA1": "260C7F5BA54E3E3D482CF4EA3122B25660DCFF86",
+    "Size": 8708,
+    "SHA1": "8B2E311F3CE05BDBC23D1D78A9C4CF408AF66805",
     "ModifiedDate": "2022-03-06T01:05:07.9098735+00:00"
   },
   {
@@ -265,8 +265,8 @@
     "Id": "e86cc442-3292-442e-babf-1fd2c754b182",
     "Categories": "Crafting",
     "FileName": "Crafting\\smeltitems.py",
-    "Size": 662,
-    "SHA1": "53C3D0750341671C7B54AC07B6FF970A750945C5",
+    "Size": 642,
+    "SHA1": "F2391CC7C7E3150912B17626CB328A5E6944C5C1",
     "ModifiedDate": "2022-07-06T02:58:35.1021324+00:00"
   },
   {
@@ -280,8 +280,8 @@
       "Blacksmith"
     ],
     "FileName": "Crafting\\Blacksmith\\SmeltPromptedItems.py",
-    "Size": 1554,
-    "SHA1": "97C4EB329EB05A5E97CE65249CF7467913007DEC",
+    "Size": 1494,
+    "SHA1": "62105092D6C48A5D21577DFE697E19339278663C",
     "ModifiedDate": "2022-03-06T01:05:07.9088737+00:00"
   },
   {
@@ -295,8 +295,8 @@
       "Tailoring"
     ],
     "FileName": "Crafting\\Tailoring\\tailor-bod-filler.py",
-    "Size": 24861,
-    "SHA1": "EBCB014280AE8F53FDEC34ACFD46910117372234",
+    "Size": 24200,
+    "SHA1": "D9179D5945778E056C0335E0403B80D3D6058EC3",
     "ModifiedDate": "2022-03-06T01:05:07.9098735+00:00"
   },
   {
@@ -415,8 +415,8 @@
     "Id": "0e1636a6-5371-406f-b4ab-e6bac964e8fa",
     "Categories": "Misc",
     "FileName": "Misc\\boatcontrolui.py",
-    "Size": 3813,
-    "SHA1": "0E07991DD7F41D3B4FFD38F9BE61DF80A14769C6",
+    "Size": 3707,
+    "SHA1": "4A7F45F630F823AA88121A8A645EB72D14971BB1",
     "ModifiedDate": "2022-03-06T01:05:07.9108722+00:00"
   },
   {
@@ -427,8 +427,8 @@
     "Id": "e5d97da5-ba81-4cf9-b9a6-64c185e88ecc",
     "Categories": "PVM",
     "FileName": "PVM\\bandage_pets.py",
-    "Size": 6299,
-    "SHA1": "723CC6EF45DEFFE3C4CD423F7218D2F38C9A5A94",
+    "Size": 6085,
+    "SHA1": "883B5D8EF983C4E50F1A70866A7AACA73D6968C5",
     "ModifiedDate": "2022-03-06T01:05:07.9108722+00:00"
   },
   {
@@ -439,8 +439,8 @@
     "Id": "ef752032-51fb-4383-a77d-3694210bdd93",
     "Categories": "Resource Gathering",
     "FileName": "Resource Gathering\\autominer.py",
-    "Size": 3234,
-    "SHA1": "47DEE5F03C211F23FB8872F5177CFD9DA04B753A",
+    "Size": 3115,
+    "SHA1": "1FB477FEFBB240353CCD6A279096C36EDEC729C6",
     "ModifiedDate": "2022-03-06T01:05:07.9118728+00:00"
   },
   {
@@ -451,8 +451,8 @@
     "Id": "597e2409-680c-4d18-a2e7-8b88b1a8ff8f",
     "Categories": "Resource Gathering",
     "FileName": "Resource Gathering\\autotrackcottongathering.py",
-    "Size": 2766,
-    "SHA1": "BC3C9130F90E2AF56EE2C32A1703F8F93EDEF36B",
+    "Size": 2691,
+    "SHA1": "C4BB4B0D70057640C089AF05A5B19BB2255E976F",
     "ModifiedDate": "2026-08-09T08:03:28.5703771+00:00"
   },
   {
@@ -463,8 +463,8 @@
     "Id": "3c115b27-1398-420f-8855-3b4717edd26d",
     "Categories": "Resource Gathering",
     "FileName": "Resource Gathering\\CollectDeedsLuna.py",
-    "Size": 1407,
-    "SHA1": "D5865C3207B4A07D4C40EDA08B212D280410AFCC",
+    "Size": 1366,
+    "SHA1": "67B53257283705596CF4B46CFA3413581E61B6BE",
     "ModifiedDate": "2024-10-06T09:46:23.8858978+00:00"
   },
   {
@@ -475,8 +475,8 @@
     "Id": "eb580959-6437-4f89-aa96-855bf6e8b35a",
     "Categories": "Resource Gathering",
     "FileName": "Resource Gathering\\lumberjackarea.py",
-    "Size": 3191,
-    "SHA1": "F0649C2330D50710BFD23DED415EF44640478605",
+    "Size": 3099,
+    "SHA1": "E155EA63ADD5EF330CC2BB1F339C4B40118C728C",
     "ModifiedDate": "2022-07-06T02:58:35.1051314+00:00"
   },
   {
@@ -487,8 +487,8 @@
     "Id": "5119a094-1835-46c0-b063-932c9d4974d9",
     "Categories": "Resource Gathering",
     "FileName": "Resource Gathering\\SOSSail.py",
-    "Size": 29866,
-    "SHA1": "023B67AE60311A3E50E5DE3D38ABC7D6EEAB168A",
+    "Size": 28860,
+    "SHA1": "541620CB22A915CC6D17E555AFE0F0E5795CAF6C",
     "ModifiedDate": "2022-03-06T01:05:07.9118728+00:00"
   },
   {
@@ -499,8 +499,8 @@
     "Id": "740dffea-7f07-48a9-aa66-a64d672b27bc",
     "Categories": "Resources",
     "FileName": "Resources\\leathergatherer.py",
-    "Size": 833,
-    "SHA1": "9A25341C299BBECFFE805FD67799F6000691F3FC",
+    "Size": 805,
+    "SHA1": "C241E8BCE5F7287A881FD2C33250F3F8FD5895BC",
     "ModifiedDate": "2022-03-06T01:05:07.9118728+00:00"
   },
   {
@@ -511,8 +511,8 @@
     "Id": "3f62853c-b7b8-4a63-841f-851c7df15cc6",
     "Categories": "Resources",
     "FileName": "Resources\\recalllumber.py",
-    "Size": 3122,
-    "SHA1": "E4FE9ECC34E99CF3FB71809E3F9BEC6E627DFC65",
+    "Size": 3027,
+    "SHA1": "99443D3D6F30091AD8EDF878EECDAA2ED27E3881",
     "ModifiedDate": "2022-03-06T01:05:07.9128740+00:00"
   },
   {
@@ -523,8 +523,8 @@
     "Id": "ace477c0-2e4b-4260-ae00-78dabbb8299a",
     "Categories": "Resources",
     "FileName": "Resources\\recallminer.py",
-    "Size": 4365,
-    "SHA1": "8C6A338033137CBB37E5E7A0D1771CFDE3C0E2D5",
+    "Size": 4229,
+    "SHA1": "62EC2E4588232DAF20B0B9D8A35B34436E405432",
     "ModifiedDate": "2022-03-06T01:05:07.9128740+00:00"
   },
   {
@@ -535,8 +535,8 @@
     "Id": "f7c21880-6fac-4d5f-b3f8-d5677c167cc8",
     "Categories": "Skill Training",
     "FileName": "Skill Training\\armsloretraining.py",
-    "Size": 836,
-    "SHA1": "715AE678285165D1043E4F47F8D6349CC1BBF7CB",
+    "Size": 810,
+    "SHA1": "0C29082FB6099281880D030C9E9516A9D486E0F0",
     "ModifiedDate": "2022-07-06T02:41:22.3132858+00:00"
   },
   {
@@ -550,8 +550,8 @@
       "Animal Taming"
     ],
     "FileName": "Skills\\Animal Taming\\train_animal_taming.py",
-    "Size": 20753,
-    "SHA1": "19893486B73B1DBD5438A7F3BA5073C2DF15945E",
+    "Size": 20203,
+    "SHA1": "A66FFF01EB877517AC11ABCB0667175035D67BD8",
     "ModifiedDate": "2022-03-06T01:05:07.9138847+00:00"
   },
   {
@@ -565,8 +565,8 @@
       "Animal Taming"
     ],
     "FileName": "Skills\\Animal Taming\\train_animal_taming_mastery.py",
-    "Size": 706,
-    "SHA1": "5D18982F9059D0A7407EEBA979E51739D19738D8",
+    "Size": 688,
+    "SHA1": "693715177AF5FBE4CF48F8704A38C3221D794F27",
     "ModifiedDate": "2022-03-06T01:05:07.9148732+00:00"
   },
   {
@@ -577,8 +577,8 @@
     "Id": "dbb2059e-0cdc-4cb7-bf8d-25a608df0f8f",
     "Categories": "Skills",
     "FileName": "Skills\\circuittrapsolver.py",
-    "Size": 2309,
-    "SHA1": "1DD427DD646C814D6EC1BDDDF7958B45B7512F08",
+    "Size": 2239,
+    "SHA1": "3ED88F54E75D7404418051BA5C4B7037C1937AD3",
     "ModifiedDate": "2024-02-11T03:53:51.3654346+00:00"
   },
   {
@@ -592,8 +592,8 @@
       "Discordance"
     ],
     "FileName": "Skills\\Discordance\\train_discordance.py",
-    "Size": 2520,
-    "SHA1": "A3B27DD931F0D8E8A24026B250867093047F7493",
+    "Size": 2439,
+    "SHA1": "C6495285238B4A4D353F28DA091DBFC211FC129A",
     "ModifiedDate": "2022-03-06T01:05:07.9148732+00:00"
   },
   {
@@ -607,8 +607,8 @@
       "Evaluating Intelligence"
     ],
     "FileName": "Skills\\Evaluating Intelligence\\train_evaluating_intelligence.py",
-    "Size": 576,
-    "SHA1": "28108EDDAAA8C7F6C7C4437C9B2E98AEB4BA35BC",
+    "Size": 561,
+    "SHA1": "0C85C2A5A4E920B1FEB174E89B1F09724AE8D392",
     "ModifiedDate": "2022-03-06T01:05:07.9158729+00:00"
   },
   {
@@ -622,8 +622,8 @@
       "Healing"
     ],
     "FileName": "Skills\\Healing\\healingtrainer.py",
-    "Size": 814,
-    "SHA1": "8A6B7C960700ACDFF8A27800A50BD472E8794417",
+    "Size": 791,
+    "SHA1": "763A0AEA2B25608A1562AF36A7705D2FE1D033CB",
     "ModifiedDate": "2022-03-06T01:05:07.9158729+00:00"
   },
   {
@@ -634,8 +634,8 @@
     "Id": "d2921dca-e8b0-4ee3-be8e-44e9565f7ddb",
     "Categories": "Skills",
     "FileName": "Skills\\lockpicktraininghelper.py",
-    "Size": 760,
-    "SHA1": "B340C28A9A589E5D39A512EB906EE1F939CFCAC4",
+    "Size": 734,
+    "SHA1": "28A16391AEA41E25FD2694A8259A8512B16FBDF3",
     "ModifiedDate": "2022-11-16T00:17:36.7562076+00:00"
   },
   {
@@ -649,8 +649,8 @@
       "Magery"
     ],
     "FileName": "Skills\\Magery\\train_magery.py",
-    "Size": 1665,
-    "SHA1": "4BC6231C5C45C57CAA344B0D4C9D49EA9084E0F1",
+    "Size": 1620,
+    "SHA1": "E3F041D26E26BC9FB8E516566650822BD1C6E95A",
     "ModifiedDate": "2022-03-06T01:05:07.9168732+00:00"
   },
   {
@@ -664,8 +664,8 @@
       "Mysticism"
     ],
     "FileName": "Skills\\Mysticism\\train_mysticism.py",
-    "Size": 1286,
-    "SHA1": "F6B21BA9450CFDA67D993FBCB7E3174B1A368C9D",
+    "Size": 1248,
+    "SHA1": "49BA7F9EDAAF58BBBCB729D249D49845D42D9829",
     "ModifiedDate": "2022-03-06T01:05:07.9168732+00:00"
   },
   {
@@ -679,8 +679,8 @@
       "Animal Lore"
     ],
     "FileName": "Skills\\Animal Lore\\petskillswindow.py",
-    "Size": 6041,
-    "SHA1": "B8F91E838F39CEA45DC138E4172E2DDBD088672A",
+    "Size": 5871,
+    "SHA1": "A8DFED1591026A5FB95336A744FEC691FBBE779F",
     "ModifiedDate": "2023-01-16T03:13:29.7346409+00:00"
   },
   {
@@ -694,8 +694,8 @@
       "Provocation"
     ],
     "FileName": "Skills\\Provocation\\train_provocation.py",
-    "Size": 2810,
-    "SHA1": "9A5F41F4D0844165CEDC08CAAFC7673685447FA9",
+    "Size": 2727,
+    "SHA1": "34BF59046FE5264D6D762E75DE09C65F130C82C5",
     "ModifiedDate": "2022-03-06T01:05:07.9178730+00:00"
   },
   {
@@ -706,8 +706,8 @@
     "Id": "f5df00f3-d782-4b0a-ae08-887ee3e37354",
     "Categories": "Skills",
     "FileName": "Skills\\trainchivalry.py",
-    "Size": 729,
-    "SHA1": "1643F3E52F9E955B3F233CCD86395C6F96A7C8DD",
+    "Size": 707,
+    "SHA1": "31818CB63904196E0D1C9870432FC56218DC0550",
     "ModifiedDate": "2022-07-05T04:32:00.4842116+00:00"
   },
   {
@@ -718,8 +718,8 @@
     "Id": "deaac96f-01b4-4f39-a7c5-fc9004f8e971",
     "Categories": "Skills",
     "FileName": "Skills\\trainnecromancy.py",
-    "Size": 522,
-    "SHA1": "204D9E850A4025F5A85D76024A1038FB81B04844",
+    "Size": 508,
+    "SHA1": "38AE7CE92A57A396938B8182BDDFBB0832D74C45",
     "ModifiedDate": "2022-11-22T00:55:01.1644346+00:00"
   },
   {
@@ -730,8 +730,8 @@
     "Id": "ed21069c-6ed6-497f-ba8f-46a595145a4e",
     "Categories": "Skills",
     "FileName": "Skills\\training.py",
-    "Size": 6454,
-    "SHA1": "3CE7CD8749183D8F4C9E43435B5475475F0E43B4",
+    "Size": 6300,
+    "SHA1": "1E2642A54EE116CE0617182AE55B178FE0E5E9AF",
     "ModifiedDate": "2024-11-05T00:21:47.2017539+00:00"
   },
   {
@@ -742,8 +742,8 @@
     "Id": "1ec5340d-b09a-4248-9fb1-461d4a646404",
     "Categories": "Skills",
     "FileName": "Skills\\trainingmagery.py",
-    "Size": 1117,
-    "SHA1": "E0205573C60BF0DE61FD7FFF83D148E5FED61DA2",
+    "Size": 1083,
+    "SHA1": "FA77FDDB3E7A63E15A1BBFD35A5C685B5B8ED27E",
     "ModifiedDate": "2024-08-29T02:48:14.3795596+00:00"
   },
   {
@@ -754,8 +754,8 @@
     "Id": "1cd753f5-6d89-4150-9d6e-e0ae23104d2a",
     "Categories": "Skills",
     "FileName": "Skills\\trainingspelweaving.py",
-    "Size": 2086,
-    "SHA1": "687B6CC2656F7ACF7AD24322CA186E847CBF452A",
+    "Size": 2036,
+    "SHA1": "7F434D8A276DD33FDC6513D69F7C71D89E790D80",
     "ModifiedDate": "2025-08-01T10:44:05.7559929+00:00"
   },
   {
@@ -766,8 +766,8 @@
     "Id": "d53637b3-6f35-4993-8a73-96596dd4427b",
     "Categories": "Skills Crafting",
     "FileName": "Skills Crafting\\makelastcount.py",
-    "Size": 373,
-    "SHA1": "4816C0F24CADF761ECFD35834E452E1D6BF0B816",
+    "Size": 360,
+    "SHA1": "ADFE412AECF85DCFFB4477A51AE664A5FB044720",
     "ModifiedDate": "2022-07-06T02:58:35.1071303+00:00"
   },
   {
@@ -778,8 +778,8 @@
     "Id": "adc4676e-63ed-43f4-bfd7-300ab67002be",
     "Categories": "Skills Crafting",
     "FileName": "Skills Crafting\\simpleminer.py",
-    "Size": 484,
-    "SHA1": "1B39937F242E483186542F0D59297EFEA6E33D87",
+    "Size": 469,
+    "SHA1": "F2EA8885D0721AB883FEB32D47DBA863F53524AD",
     "ModifiedDate": "2022-03-06T01:05:07.9138847+00:00"
   },
   {
@@ -790,8 +790,8 @@
     "Id": "20fc30c1-785e-4b7d-ac6e-2a88c0cb840d",
     "Categories": "Utility",
     "FileName": "Utility\\combinestacks.py",
-    "Size": 1278,
-    "SHA1": "950996E70104A3483B02B21118087D52C00E88C7",
+    "Size": 1235,
+    "SHA1": "569E8FD8F94BD9A9124C49CAFE8BE6A0AF2013E5",
     "ModifiedDate": "2022-03-06T01:05:07.9188735+00:00"
   },
   {
@@ -802,8 +802,8 @@
     "Id": "9f2e89ee-2905-4976-a1d6-503c5731fc46",
     "Categories": "Utility",
     "FileName": "Utility\\jelweryboxfilter.py",
-    "Size": 8991,
-    "SHA1": "1CA8632C71332F3CA62260C9B0EFCE7E5F3F01BC",
+    "Size": 8726,
+    "SHA1": "F9D469F3336093C5409E392EEBD70EE64BE21523",
     "ModifiedDate": "2024-09-07T02:27:09.1109946+00:00"
   },
   {
@@ -814,8 +814,8 @@
     "Id": "9388d657-1a61-45d9-a0a9-54f7990e4ba5",
     "Categories": "Utility",
     "FileName": "Utility\\MacroUI.py",
-    "Size": 2820,
-    "SHA1": "C090B02451B0E011EDEB3461C26C3CFD56D9202B",
+    "Size": 2737,
+    "SHA1": "1D7645FFCC97693DF5417B9C15CFC77742E6E2EF",
     "ModifiedDate": "2025-05-22T21:56:29.7087947+00:00"
   },
   {
@@ -826,8 +826,8 @@
     "Id": "60610952-fab0-4049-9610-4fe3f4dd5ba9",
     "Categories": "Utility",
     "FileName": "Utility\\recallbuyer.py",
-    "Size": 4593,
-    "SHA1": "514328168DB2C15D2252934F0A424460C2EF77C7",
+    "Size": 4465,
+    "SHA1": "2E3FEB15AEBC33817E18364A45F403D9CB35A0B0",
     "ModifiedDate": "2022-03-06T01:05:07.9188735+00:00"
   },
   {
@@ -838,8 +838,8 @@
     "Id": "26f0b56b-99ca-40b7-bb5a-6ee4d19f9460",
     "Categories": "Utility",
     "FileName": "Utility\\runebookcloner.py",
-    "Size": 3593,
-    "SHA1": "B57652AC48A691C414FFC0F78024757C1911FFD4",
+    "Size": 3460,
+    "SHA1": "C0F978F03E8857B77DFFA6330933167930589657",
     "ModifiedDate": "2022-03-06T01:05:07.9188735+00:00"
   },
   {
@@ -850,8 +850,8 @@
     "Id": "b5dc4d54-531d-4326-8a2c-5a39e3e1b051",
     "Categories": "Utility",
     "FileName": "Utility\\setz.py",
-    "Size": 444,
-    "SHA1": "ACDF04EB0F35CC7D118368764D0C0F1B35C22703",
+    "Size": 432,
+    "SHA1": "8A3BC352E92CEDAAFD087F95D071FAF7E807B4D5",
     "ModifiedDate": "2022-03-06T01:05:07.9198759+00:00"
   },
   {
@@ -862,8 +862,8 @@
     "Id": "9c469cba-0107-40ce-a7f0-0df222f70963",
     "Categories": "Utility",
     "FileName": "Utility\\Treasure Map Decoder.py",
-    "Size": 8203,
-    "SHA1": "34BEE431E648A1F4C34496D3513C6E3EA9D6BE1F",
+    "Size": 7884,
+    "SHA1": "AAD74616DC0424117AF95A331C940C195E7B9592",
     "ModifiedDate": "2023-02-05T04:32:07.0803201+00:00"
   }
 ]

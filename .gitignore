@@ -1,2 +1,4 @@
 # Codespaces folder
 .venv/
+# metadata yedek dosyalari
+*.bak_metadata

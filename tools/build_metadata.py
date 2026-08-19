@@ -35,7 +35,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MACROS_DIR = ROOT / "Macros"
 METADATA_PATH = MACROS_DIR / "metadata.json"
-BACKUP_SUFFIX = ".bak_metadata"
 
 # Yeni (Custom) makrolar icin varsayilan yazar
 DEFAULT_AUTHOR = "beyhano"
@@ -162,12 +161,12 @@ def build() -> tuple[list, dict]:
 
         new_recs.append(rec)
 
-    # Diske karsiligi olmayanlar: SİL
+    # Diske karsiligi olmayanlar: SÄ°L
     disk_files = {relpath_of(p) for p in py_files}
     removed = [m for m in new_recs if m.get("FileName") not in disk_files]
-    # not: new_recs yalnızca diske gore eklendi; existing'ten gelen ama diskte
-    # olmayanlar zaten new_recs'te yok. removed hesabi boş gelebilir; yine de
-    # eski kayitlari koruyan yanlifliği net onlemek icin added_target kontrol:
+    # not: new_recs yalnÄ±zca diske gore eklendi; existing'ten gelen ama diskte
+    # olmayanlar zaten new_recs'te yok. removed hesabi boÅŸ gelebilir; yine de
+    # eski kayitlari koruyan yanlifliÄŸi net onlemek icin added_target kontrol:
     stats["removed"] = len(removed) if removed else len(existing) - len(new_recs)
 
     # Siralama deterministik: Kategori -> Name
@@ -193,7 +192,7 @@ def build() -> tuple[list, dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--report-only", action="store_true", help="yalnızca raporla, dosyaya yazma")
+    parser.add_argument("--report-only", action="store_true", help="yalnÄ±zca raporla, dosyaya yazma")
     args = parser.parse_args()
 
     if not MACROS_DIR.exists():
@@ -207,7 +206,7 @@ def main() -> int:
               f"degismeyen: {stats['unchanged']}, silinen: {stats['removed']})")
         return 0
 
-    # Hedef icerik eskiyle ayniysa yazma (idempotent) — aksi halde yedekten sonra yaz
+    # Hedef icerik eskiyle ayniysa yazma (idempotent) â€” aksi halde yedekten sonra yaz
     target = json.dumps(recs, ensure_ascii=False, indent=2) + "\n"
     if METADATA_PATH.exists():
         old = METADATA_PATH.read_text(encoding="utf-8-sig")
@@ -215,8 +214,6 @@ def main() -> int:
         if normalized_old == target:
             print(f"GUNCELLEME GEREKMIYOR: {len(recs)} kayit ayni")
             return 0
-        backup = str(METADATA_PATH) + BACKUP_SUFFIX
-        METADATA_PATH.replace(backup)
 
     with open(METADATA_PATH, "w", encoding="utf-8") as fh:
         fh.write(target)

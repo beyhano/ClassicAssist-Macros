@@ -432,6 +432,18 @@
     "ModifiedDate": "2022-03-06T01:05:07.9108722+00:00"
   },
   {
+    "Name": "Auto Miner",
+    "Description": "Unattended cave mining",
+    "Author": "Batt11",
+    "Shard": "Dark Forest",
+    "Id": "ef752032-51fb-4383-a77d-3694210bdd93",
+    "Categories": "Resource Gathering",
+    "FileName": "Resource Gathering\\autominer.py",
+    "Size": 3115,
+    "SHA1": "1FB477FEFBB240353CCD6A279096C36EDEC729C6",
+    "ModifiedDate": "2022-03-06T01:05:07.9118728+00:00"
+  },
+  {
     "Name": "Auto-Track Cotton Gathering",
     "Description": "Auto-Track Cotton Gathering",
     "Author": "zny05",

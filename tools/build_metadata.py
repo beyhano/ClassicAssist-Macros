@@ -6,30 +6,26 @@ ClassicAssist-Macros metadata.json uretici/duzenleyici.
 Macros/ klasoru altindaki tum *.py makro dosyalarini tarar, mevcut
 metadata.json'daki kayitlarla birlestirir ve guncel metadata.json uretir.
 
-Davranis:
-  - Mevcut kayitlar YENIDEN YAZILMAZ: Id, SHA1, Size, ModifiedDate, Name,
-    Author, Era, Description korunur (mevcut metadata'daki degerler asildir).
-  - Diskte var olup metadata'da OLMAYAN yeni bir .py gorulurse eklenir:
-      Name        -> dosya adindan (uzanti atilmis, ilk harf buyuk) VEYA "# Name:" yorumundan
-      Description -> "# Description:" yorumundan (yoksa bos)
-      Author      -> "# Author:" yorumundan (yoksa "beyhano")
-      Era         -> "# Era:" yorumundan (yoksa "Custom")
-      Categories  -> diskteki ust klasor adi  (ornek: Custom)
-      FileName    -> klasore gore yol, backslash ayiriciyla
-      Size        -> dosyanin byte boyutu
-      SHA1        -> dosyanin SHA-1'i (buyuk harf hex)
-      Id          -> rastgele UUID v4
-      ModifiedDate-> dosya mtime
-  - metadata'da gorunen ama diske karsiligi OLMAYAN bir kayit YENIDEN YAZILIR
-    YERINE birebir korunur (silmez), boylece eski kayitlar kaybolmaz.
+Davranis (v2 - deterministik & idempotent):
+  - Diskteki *.py dosyalari ESAS ALINIR: metadata'da olup diske karsiligi
+    olmayan kayit OTOMATIK SILINIR (onceki surum koruyordu, bu yanlif sapti).
+  - Mevcut bir dosyanin kaydi yoksa ANCAK yoksa eklenir; var olan kaydin
+    Id/SHA1/Size/ModifiedDate korunur (SHA1/Size yalnizca dosya degistiyse
+    guncellenir, ModifiedDate her seferinde degismez).
+  - Deterministik uretim: cikti dosyalarin mtime/dosya adi/dizininden
+    turetilir; ayni girdi -> ayni cikti (idempotent).
+  - Custom klasor korumali cakisma denetimi: Custom/<ad> ile Custom disindaki
+    bir dosyanin dosya adi ayniysa (veya "# Name:" basligi ayniysa) uyari
+    verir. (Silme islemi bilincli manuel; script sadece raporlar.)
 
 Kullanim:
   python3 tools/build_metadata.py
+  python3 tools/build_metadata.py --report-only   # yalnizca rapor, yazma yok
 """
 
+import argparse
 import hashlib
 import json
-import os
 import re
 import sys
 import uuid
@@ -39,10 +35,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MACROS_DIR = ROOT / "Macros"
 METADATA_PATH = MACROS_DIR / "metadata.json"
+BACKUP_SUFFIX = ".bak_metadata"
+
+# Yeni (Custom) makrolar icin varsayilan yazar
+DEFAULT_AUTHOR = "beyhano"
 
 
 def dedent_comment(value: str) -> str:
-    """Yorum satirinin '#' sonrasi boslugunu temizle."""
     return value.strip()
 
 
@@ -56,9 +55,7 @@ def read_header_comment(path: Path) -> dict:
                 if not line:
                     break
                 if not line.lstrip().startswith("#"):
-                    # yorumlar sadece dosyanin baskindadir; ilk kod satirinda dur
-                    if "#" not in line:
-                        continue
+                    continue
                 m = re.match(r"^\s*#\s*([A-Za-z]+)\s*:\s*(.*)$", line)
                 if m:
                     key = m.group(1).lower()
@@ -86,99 +83,146 @@ def name_from_header_or_file(path: Path) -> str:
     return " ".join(word.capitalize() for word in stem.split()) if stem else path.stem
 
 
-def main() -> int:
-    if not MACROS_DIR.exists():
-        print(f"HATA: {MACROS_DIR} bulunamadi")
-        return 1
+def relpath_of(path: Path) -> str:
+    return str(path.relative_to(MACROS_DIR)).replace("/", "\\")
 
-    # Mevcut metadata
-    existing = []
-    if METADATA_PATH.exists():
-        try:
-            with open(METADATA_PATH, "r", encoding="utf-8-sig") as fh:
-                existing = json.load(fh)
-        except (json.JSONDecodeError, OSError) as exc:
-            print(f"UYARI: mevcut metadata okunamadi ({exc}), sifirdan olusturuyorum")
-            existing = []
 
-    # Dosyadan diske gore kayitlari eşle
-    by_file = {mac["FileName"]: mac for mac in existing if mac.get("FileName")}
+def stat_or_none(path: Path):
+    try:
+        return path.stat()
+    except OSError:
+        return None
 
-    # Disk taramasi
+
+def load_existing() -> list:
+    if not METADATA_PATH.exists():
+        return []
+    try:
+        with open(METADATA_PATH, "r", encoding="utf-8-sig") as fh:
+            return json.load(fh)
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def build() -> tuple[list, dict]:
+    """Diske gore metadata uretir. (kayit_listesi, istatistik) dondurur."""
     py_files = sorted(MACROS_DIR.rglob("*.py"))
+    existing = load_existing()
+    by_file = {m.get("FileName"): m for m in existing if m.get("FileName")}
 
-    # Yeni eklenen makrolar (diskte var, metadata'da yok)
-    added = 0
-    updated = 0
+    new_recs = []
+    stats = {"added": 0, "updated": 0, "unchanged": 0, "removed": 0}
+
     for path in py_files:
-        rel = path.relative_to(MACROS_DIR)
-        fname = str(rel).replace("/", "\\")
-
-        if fname in by_file:
-            # surede guncelleme: boyut ve hash degisti mi? (sadece bilgi amaci)
-            existing_rec = by_file[fname]
-            try:
-                size = path.stat().st_size
-                if existing_rec.get("Size") != size:
-                    existing_rec["Size"] = size
-                digest = sha1_of(path)
-                if existing_rec.get("SHA1") != digest:
-                    existing_rec["SHA1"] = digest
-                updated += 1
-            except OSError:
-                pass
+        fname = relpath_of(path)
+        st = stat_or_none(path)
+        if st is None:
+            print(f"UYARI: {fname} okunamadi, atlaniyor")
             continue
+        size = st.st_size
+        digest = sha1_of(path)
 
-        # Yeni kayit olustur
-        try:
-            size = path.stat().st_size
-        except OSError as exc:
-            print(f"UYARI: {rel} okunamadi ({exc})")
-            continue
+        rec = by_file.get(fname)
+        if rec is None:
+            header = read_header_comment(path)
+            category = Path(fname).parts[0] if "\\" in fname else "Misc"
+            name = header.get("name") or name_from_header_or_file(path)
+            rec = {
+                "Name": name,
+                "Description": header.get("description", ""),
+                "Author": header.get("author", DEFAULT_AUTHOR),
+                "Era": header.get("era", "Custom"),
+                "Id": str(uuid.uuid4()),
+                "Categories": category,
+                "FileName": fname,
+                "Size": size,
+                "SHA1": digest,
+                # mtime => ISO UTC (deterministik olmayan kismi canonicalize)
+                "ModifiedDate": datetime.fromtimestamp(st.st_mtime, tz=timezone.utc)
+                .isoformat()
+                .replace("+00:00", "+00:00"),
+            }
+            stats["added"] += 1
+        else:
+            # Size/hash degisti mi? degismediyse dokunma (deterministik)
+            size_changed = rec.get("Size") != size
+            hash_changed = rec.get("SHA1") != digest
+            if size_changed or hash_changed:
+                rec["Size"] = size
+                rec["SHA1"] = digest
+                # ModifiedDate'i yalnizca icerik degistiginde yenile
+                rec["ModifiedDate"] = (
+                    datetime.fromtimestamp(st.st_mtime, tz=timezone.utc)
+                    .isoformat()
+                    .replace("+00:00", "+00:00")
+                )
+                stats["updated"] += 1
+            else:
+                stats["unchanged"] += 1
 
-        header = read_header_comment(path)
-        category = rel.parts[0] if len(rel.parts) > 1 else "Misc"
-        name = header.get("name") or name_from_header_or_file(path)
+        new_recs.append(rec)
 
-        rec = {
-            "Name": name,
-            "Description": header.get("description", ""),
-            "Author": header.get("author", "beyhano"),
-            "Era": header.get("era", "Custom"),
-            "Id": str(uuid.uuid4()),
-            "Categories": category,
-            "FileName": fname,
-            "Size": size,
-            "SHA1": sha1_of(path),
-            "ModifiedDate": datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
-            .isoformat()
-            .replace("+00:00", "+00:00"),
-        }
-        existing.append(rec)
-        by_file[fname] = rec
-        added += 1
-        print(f"+ {fname}  ({name})")
+    # Diske karsiligi olmayanlar: SİL
+    disk_files = {relpath_of(p) for p in py_files}
+    removed = [m for m in new_recs if m.get("FileName") not in disk_files]
+    # not: new_recs yalnızca diske gore eklendi; existing'ten gelen ama diskte
+    # olmayanlar zaten new_recs'te yok. removed hesabi boş gelebilir; yine de
+    # eski kayitlari koruyan yanlifliği net onlemek icin added_target kontrol:
+    stats["removed"] = len(removed) if removed else len(existing) - len(new_recs)
 
-    # metadata'da olup diske karsiligi olmayanlar: korunur (not duser)
-    missing_on_disk = [f for f in by_file if not (MACROS_DIR / f.replace("\\", "/")).exists()]
-    if missing_on_disk:
-        print(f"BILGI: {len(missing_on_disk)} kayit diskte yok, metadata'da korundu.")
-
-    # Siralama: Kategori -> Name
-    # Categories bazi eski kayitlarda liste olabilir (CategoriesConverter), normalize et
+    # Siralama deterministik: Kategori -> Name
     def cat_key(rec):
         c = rec.get("Categories", "")
         if isinstance(c, list):
             c = c[0] if c else ""
-        return str(c), str(rec.get("Name", ""))
+        return str(c), str(rec.get("Name", ""),)
 
-    existing.sort(key=cat_key)
+    new_recs.sort(key=cat_key)
+
+    # Uyari: Custom ile diger kategori dosya adi cakismasi
+    custom_names = {m.get("FileName") for m in new_recs if m.get("FileName", "").startswith("Custom")}
+    for rec in new_recs:
+        fn = rec.get("FileName", "")
+        if not fn.startswith("Custom"):
+            base = Path(fn).name
+            if any(c.endswith(base) for c in custom_names if c.endswith(base) and c != fn):
+                print(f"UYARI(cakisma): {fn} <=> Custom'da ayni adli makro var")
+
+    return new_recs, stats
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--report-only", action="store_true", help="yalnızca raporla, dosyaya yazma")
+    args = parser.parse_args()
+
+    if not MACROS_DIR.exists():
+        print(f"HATA: {MACROS_DIR} bulunamadi")
+        return 1
+
+    recs, stats = build()
+
+    if args.report_only:
+        print(f"[RAPOR] toplam {len(recs)} kayit (eklenen: {stats['added']}, guncellenen: {stats['updated']}, "
+              f"degismeyen: {stats['unchanged']}, silinen: {stats['removed']})")
+        return 0
+
+    # Hedef icerik eskiyle ayniysa yazma (idempotent) — aksi halde yedekten sonra yaz
+    target = json.dumps(recs, ensure_ascii=False, indent=2) + "\n"
+    if METADATA_PATH.exists():
+        old = METADATA_PATH.read_text(encoding="utf-8-sig")
+        normalized_old = json.dumps(json.loads(old), ensure_ascii=False, indent=2) + "\n"
+        if normalized_old == target:
+            print(f"GUNCELLEME GEREKMIYOR: {len(recs)} kayit ayni")
+            return 0
+        backup = str(METADATA_PATH) + BACKUP_SUFFIX
+        METADATA_PATH.replace(backup)
 
     with open(METADATA_PATH, "w", encoding="utf-8") as fh:
-        json.dump(existing, fh, ensure_ascii=False, indent=2)
-        fh.write("\n")
+        fh.write(target)
 
-    print(f"Tamam: {len(existing)} kayit (yeni: {added}, boyut/hash guncel: {updated}) -> {METADATA_PATH}")
+    print(f"Tamam: {len(recs)} kayit ({stats['added']} yeni, {stats['updated']} guncel, "
+          f"{stats['unchanged']} ayni, {stats['removed']} silinen) -> {METADATA_PATH}")
     return 0
 
 

@@ -1,0 +1,37 @@
+name: Build metadata
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-metadata:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate metadata.json
+        run: python3 tools/build_metadata.py
+
+      - name: Commit metadata updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet Macros/metadata.json; then
+            echo "metadata.json guncel, commit gerekmiyor"
+          else
+            git add Macros/metadata.json
+            git commit -m "chore: metadata.json otomatik guncellendi"
+            git push
+          fi

@@ -1,0 +1,47 @@
+# Donate to Guild Treasury Automatically by Jaseowns
+# UO Unchained
+# Add items to the list to auto donate using >info
+removelist jaseowns_LootToDonate
+createlist jaseowns_LootToDonate
+# pushlist jaseowns_LootToDonate "gold coin"
+pushlist jaseowns_LootToDonate "cut up leather"
+pushlist jaseowns_LootToDonate 7127
+pushlist jaseowns_LootToDonate 6583
+pushlist jaseowns_LootToDonate 7133
+
+clearignore
+say '[guild'
+waitforgump 516474935 500
+gumpresponse 11 516474935
+waitforgump 516474935 500
+gumpresponse 100 1478311224
+waitfortarget 500
+getlabel backpack pingCheck
+if insysmsg "Target the resources you wish to add to your guild treasury."
+    if listexists jaseowns_LootToDonate
+        foreach jaseowns_DonateItem in jaseowns_LootToDonate
+            while findtype jaseowns_DonateItem backpack as jaseowns_DonateThisItem
+                getlabel jaseowns_DonateThisItem jaseowns_DonateThisItemDesc
+                sysmsg "Running on {{jaseowns_DonateThisItemDesc}}"
+                if targetexists
+                    target jaseowns_DonateThisItem
+                    getlabel backpack jaseowns_PingCheck
+                endif
+                if not targetexists
+                waitforgump 516474935 500
+                gumpresponse 100 1478311224
+                waitfortarget 500
+                endif
+            endwhile
+        endfor
+    endif
+endif
+
+if targetexists
+    hotkey "Cancel current target"
+endif
+
+#if name = "Jase Owns"
+#    hotkey "Play Script: Warrior\Loop"
+#endif
+

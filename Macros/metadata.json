@@ -408,6 +408,18 @@
     "ModifiedDate": "2026-08-17T16:45:52.239785+00:00"
   },
   {
+    "Name": "Ui Waila Item Info.py",
+    "Description": "",
+    "Author": "beyhano",
+    "Era": "Custom",
+    "Id": "0f02c94a-59cb-4f69-a38f-d2236f7d0090",
+    "Categories": "Custom\\UI_waila_item_info.py.py",
+    "FileName": "Custom\\UI_waila_item_info.py.py",
+    "Size": 113694,
+    "SHA1": "8129D421BEBFBF587A613B8D05EF213981FB8D5C",
+    "ModifiedDate": "2026-08-31T16:44:06.555337+00:00"
+  },
+  {
     "Name": "Boat Control UI",
     "Description": "Boat control UI like UO rudder for navigating around in a boat, with text commands",
     "Author": "Reetus",

@@ -1,0 +1,56 @@
+#Start with full spell book 
+#Start at mage shop north in brit the main mage shop in OSI
+#Have at least Gheal, invisibility, and Earth Elemental.
+
+if skill 'magery' < 60 and mana < 11
+    useskill "meditation"
+    while mana < maxmana
+    endwhile
+    pause 600
+    elseif skill 'magery' < 100 and mana < 50
+    useskill "meditation"
+    while mana < maxmana
+    endwhile
+    pause 600
+endif
+
+//training
+
+if skill 'magery' < 50
+    cast "greater heal"
+    waitfortarget 15000
+    target self
+    pause 1000
+    elseif skill 'magery' < 75
+    cast "invisibility"
+    waitfortarget 15000
+    target self
+    pause 1000
+elseif skill 'magery' >= 75 and skill 'magery' < 100 and mana >= 50
+    cast 'Earth Elemental'
+    pause 5500
+    if followers >= 2
+        say 'an earth elemental release'
+        pause 500
+    endif
+elseif skill 'magery' == 100
+    msg "Magery leveling complete!"
+    stop
+endif
+
+#Must have buy agent setup in razor
+#Buy 100 of each reg is what i did
+
+#Get mage vendors serial id's
+#>info
+
+#vendor named Dulcie
+menu 0x2E64 1
+wait 650
+#vendor named Callidora
+menu 0x2322 1
+wait 650
+#vendor named Jerome
+menu 0x2E67 1
+wait 650
+loop

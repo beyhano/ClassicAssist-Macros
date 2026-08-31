@@ -1,0 +1,27 @@
+while skill "alchemy" < 100
+
+    if not varexist resourceBagAlchemy
+        overhead "we need to set it bro" 89
+        setvar resourceBagAlchemy    
+    endif
+    
+    restock 3
+    wft 650
+    target resourceBagAlchemy
+    wait 800
+
+    dclicktype "mortar and pestle" backpack
+    waitforgump "any"
+    wait 650
+    gumpresponse 21
+    wait 650
+    
+    if insysmsg "You have worn out your tool!"
+        overhead "Worned out" 89
+        restock 3
+        wft 650
+        target resourceBagAlchemy
+        wait 650
+    endif
+
+endwhile

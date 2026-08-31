@@ -1,0 +1,69 @@
+#Alchemy Trainer
+#Need: 
+#   mortar and pestle 20x 
+#   Nightshade 10Kish
+#   50 Alchemy
+#   Empty Bottles
+#   Be in Poison Mastery
+
+@setvar! ping 1000
+
+if skill 'alchemy' <= 55
+    if findtype 'mortar and pestle' backpack -1 -1 -1 as kit
+        dclick kit
+        wait ping
+        waitforgump 949095101 650
+        gumpresponse 22
+        wait ping
+        waitforgump 949095101 650
+        gumpresponse 9
+        wait ping
+        waitforgump 949095101 650
+    endif
+    if findtype 'Green Potion' backpack as pot
+        dclick pot
+        wait ping
+    endif
+    
+elseif skill 'alchemy' < 90
+    if findtype 'mortar and pestle' backpack -1 -1 -1 as kit
+        dclick kit
+        wait ping
+        waitforgump 949095101 650
+        gumpresponse 22
+        wait ping
+        waitforgump 949095101 650
+        gumpresponse 16
+        wait ping
+        waitforgump 949095101 650
+    endif
+    if findtype 'Green Potion' backpack as pot
+        dclick pot
+        wait ping
+    endif
+
+elseif skill 'alchemy' < 100
+    if findtype 'mortar and pestle' backpack -1 -1 -1 as kit
+        dclick kit
+        wait ping
+        waitforgump 949095101 650
+        gumpresponse 22
+        wait ping
+        waitforgump 949095101 650
+        gumpresponse 23
+        wait ping
+        waitforgump 949095101 650
+    endif
+    if findtype 'Green Potion' backpack as pot
+        dclick pot
+        wait ping
+    endif
+else 
+    if skill 'alchemy' == 100
+        say 'All Done!'
+        stop
+        break
+    endif
+endif
+
+replay

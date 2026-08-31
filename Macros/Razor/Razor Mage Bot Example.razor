@@ -1,0 +1,47 @@
+# Example mage bot for regular Razor by Jaseowns
+# UO Unchained
+# 2025-08-04
+cooldown "Jase Owns YouTube" 30 89
+@setvar! jaseowns_CastSummon 0
+settimer checkTargetTimer 5000
+while not dead
+    if poisoned
+        cast "Cure"
+        wft 2000
+        if targetexists
+            hotkey "Target Self"
+        endif
+    elseif hp < maxhp
+        if diffhits > 60
+            cast "Greater Heal"
+            wft 5000
+        elseif diffhits > 30
+            cast "Greater Heal"
+            wft 5000
+        elseif diffhits >= 10
+            cast "Heal"
+            wft 1000
+        endif
+        if targetexists
+            hotkey "Target Self"
+        endif
+    elseif name = "Jaseowns TTV" and timer checkTargetTimer >= 5000
+        settimer checkTargetTimer 0
+        hotkey "target closest non-friendly monster"
+        wait 200
+        if insysmsg "no one found"
+            // do nothing
+        else
+            attack lasttarget 
+        endif
+    
+    endif
+    if followers < 4
+        @setvar! jaseowns_CastSummon 1
+        cast 'Summ. Creature'
+    elseif jaseowns_CastSummon = 1
+        say "all guard"
+        @setvar! jaseowns_CastSummon 0
+    endif
+    wait 50
+endwhile

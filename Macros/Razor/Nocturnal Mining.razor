@@ -1,0 +1,42 @@
+# Ultimate Mining with pack beetle - by: Nocturnal Llama
+    # UO Unchained
+    # Setup: Organizer 20 > Add raw ore and set the hot bag to your beetle
+        # 1 Shovel in pack
+
+cooldown 'Mining' 20 4 'inspire' 0 false 'darkslateblue' 'darkslategray' 
+clearjournal 
+
+while not dead
+if mounted = 1
+    overhead 'Dismounting: Lets begin!'
+    dclick 'self'
+    endif
+    
+if diffweight < 5 or weight > maxweight
+    overhead 'Putting ores in beetle...' 40
+    organizer '20'
+    wait 2000
+   if findtype 6585 true
+       overhead 'Beetle full: Time to smelt!'
+   stop 
+   endif
+endif    
+if findtype 3897 backpack as shovel
+    dclick shovel
+    wft 1000
+    hotkey 'Target Self'
+    wait 2000
+    endif
+if not findtype 3897 backpack
+    overhead 'You have ran out of shovels!' 33
+    if findtype 6585 backpack as ore
+        lift ore 1
+        droprelloc -1 0
+        overhead 'Ore marker placed!' 33
+        wait 1000
+        endif
+    dclick '0xB777'
+    stop
+    endif
+endwhile
+loop

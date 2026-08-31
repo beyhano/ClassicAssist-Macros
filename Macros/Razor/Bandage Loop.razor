@@ -1,0 +1,20 @@
+# Bandage Self Loop by Jaseowns
+# UO Unchained
+if not timerexists jaseowns_BandaidTimer
+    settimer jaseowns_BandaidTimer 10000
+endif
+
+while not dead
+    if timer jaseowns_BandaidTimer >= 10000
+        if poisoned or hp < maxhp
+            hotkey "Bandage Self"
+            wait 200
+            if insysmsg "You begin applying the bandages."
+                settimer jaseowns_BandaidTimer 0
+            endif
+        endif
+    endif
+    if insysmsg "You finish applying" or insysmsg "You heal what little" or insysmsg "barely help"
+        settimer jaseowns_BandaidTimer 10000
+    endif
+endwhile

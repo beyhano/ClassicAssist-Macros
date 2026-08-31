@@ -1,0 +1,54 @@
+## Mine, Smelt, Store Ingots. All in one Mining Bot. (Need Firebeetle and Pack Animal/Beetle)
+## Snipped from a script by Jaseowns and modified my Magreal, Aka AAVRON
+## 
+##
+## SETUP:
+## - Adjust weight on line 15 to about 50 stones more than your weight before mining
+## - Use >info to get the target number of your fire beetle and update line 28 and Line 43
+## - Setup Organize Agent 15 with ingots and add all the gems you get from mining. Set your pack animal or beetle as your hot bag. 
+## - - You might have to mine for a bit to get all the different gems for the above agent.
+## - Either carry a bunch of shoves or add your shovels to your house Resource Storage and pull one shovel with 2000 charges on it.
+## - Optional - You can leave line 20 item # to 1 if you want to move and smelt just 1 ore at a time or increase to mine faster but will get fewer colored ingots. (default set to 1)
+
+if weight > maxweight
+    
+    while weight > 150
+    
+        if findtype 6585 backpack as item
+            getlabel item desc
+            overhead desc
+            lift item 1
+            drop backpack 0 0 0
+            wait 650
+            getlabel item desc
+            overhead desc
+            dclick item
+            wft 500
+            # Forge 4017
+            target 0xD60B
+            wait 500
+         endif
+
+         if findtype 6584 backpack as item
+            getlabel item desc
+            overhead desc
+            lift item 1
+            drop backpack 0 0 0
+            wait 650
+            getlabel item desc
+            overhead desc
+            dclick item
+            wft 500
+            # Forge 4017
+            target 0xD60B
+            wait 500
+        endif
+        organizer 15
+    endwhile
+endif    
+
+dclicktype '3897'
+waitfortarget
+hotkey 'Target Self'
+wait 2000
+loop

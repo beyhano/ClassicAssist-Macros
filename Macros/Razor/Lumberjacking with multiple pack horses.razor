@@ -1,0 +1,67 @@
+if not varexist pack1
+    setvar pack1
+    setvar pack2
+    setvar pack3
+    setvar pack4
+endif
+
+if diffweight <= 30
+    if findtype 7133 backpack
+        while findtype 7133 backpack as log
+            hotkey "Use Item in Hand"
+            wft 500
+            target log
+            wait 650
+        endwhile
+    endif
+if not dead pack1
+    getlabel pack1 desc
+    if "[1600/1600" in desc or "[1590/1600" in desc or "[1580/1600" in desc or "[1570/1600" in desc or "[1560/1600" in desc or "[1550/1600" in desc or "[1540/1600" in desc or "[1530/1600" in desc or "[1520/1600" in desc or "[1510/1600" in desc or "[1500/1600" in desc
+        overhead "Pack 1 is full"
+        ignore pack1
+    else
+        organizer 1
+        wait 1500
+    endif
+endif
+
+if not dead pack2
+    getlabel pack2 desc
+    if "[1600/1600" in desc or "[1590/1600" in desc or "[1580/1600" in desc or "[1570/1600" in desc or "[1560/1600" in desc or "[1550/1600" in desc or "[1540/1600" in desc or "[1530/1600" in desc or "[1520/1600" in desc or "[1510/1600" in desc or "[1500/1600" in desc
+        overhead "Pack 2 is full"
+        ignore pack2
+    else
+        organizer 2
+        wait 1500
+    endif
+endif
+
+if not dead pack3
+    getlabel pack3 desc
+    if "[1600/1600" in desc or "[1590/1600" in desc or "[1580/1600" in desc or "[1570/1600" in desc or "[1560/1600" in desc or "[1550/1600" in desc or "[1540/1600" in desc or "[1530/1600" in desc or "[1520/1600" in desc or "[1510/1600" in desc or "[1500/1600" in desc
+        overhead "Pack 3 is full"
+        ignore pack3
+    else
+        organizer 3
+        wait 1500
+    endif
+endif
+
+if not dead pack4
+    getlabel pack4 desc
+    if "[1600/1600" in desc or "[1590/1600" in desc or "[1580/1600" in desc or "[1570/1600" in desc or "[1560/1600" in desc or "[1550/1600" in desc or "[1540/1600" in desc or "[1530/1600" in desc or "[1520/1600" in desc or "[1510/1600" in desc or "[1500/1600" in desc
+        overhead "Pack 4 is full"
+        ignore pack4
+    else
+        organizer 4
+        wait 1500
+    endif
+endif
+endif
+
+
+hotkey "Use item in hand"
+waitfortarget 
+hotkey 'Target Self'
+wait 5000
+loop

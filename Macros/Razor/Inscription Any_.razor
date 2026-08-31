@@ -1,0 +1,27 @@
+while skill "inscription" < 100
+
+    if not varexist resourceBagInscription
+        overhead "we need to set it bro" 89
+        setvar resourceBagInscription    
+    endif
+    
+    restock 2
+    wft 650
+    target resourceBagInscription
+    wait 650
+
+    dclicktype "pen and ink" backpack
+    waitforgump "any"
+    wait 650
+    gumpresponse 21
+    wait 650
+    
+    if insysmsg "You have worn out your tool!"
+        overhead "Worned out" 89
+        restock 2
+        wft 650
+        target resourceBagInscription
+        wait 650
+    endif
+
+endwhile

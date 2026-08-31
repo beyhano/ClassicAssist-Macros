@@ -1,0 +1,59 @@
+while skill 'Peacemaking' < 100
+
+    if not findtype '0x0EB3' 'backpack'
+        // No lute found in backpack
+        overhead 'No lutes in backpack!' 89
+        pause 1000
+        continue
+    endif
+
+    // Use lute and attempt Peacemaking
+    dclicktype '0x0EB3' 'backpack'
+    useskill 'Peacemaking'
+    waitfortarget 5000
+    target 'self'
+    wait 500  // Small buffer before checking for result
+
+    // Check for failure message to determine wait duration
+    if insysmsg 'You attempt to calm everyone, but fail.'
+        wait 5000
+    else
+        wait 10000
+    endif
+
+    // Say guards to refresh journal or prevent idle, while guarding against pks and thieves.
+    say 'guards'
+    pause 500
+
+    // Handle instrument prompt (when instrument fails to auto-select)
+    if insysmsg 'What instrument shall you play?'
+        overhead 'Instrument prompt detected — retrying' 89
+        wait 250
+
+        if findtype '0x0EB3' 'backpack'
+            // Try again with new lute
+            dclicktype '0x0EB3' 'backpack'
+            useskill 'Peacemaking'
+            waitfortarget 5000
+            target 'self'
+            wait 500
+
+            if insysmsg 'You attempt to calm everyone, but fail.'
+                wait 5000
+            else
+                wait 10000
+            endif
+
+            say 'guards'
+            pause 500
+        else
+            // No more instruments found
+            overhead 'Out of instruments!' 89
+            pause 1000
+            continue
+        endif
+    endif
+
+    pause 500
+
+endwhile

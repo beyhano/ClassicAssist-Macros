@@ -1,0 +1,26 @@
+if lhandempty
+    if findtype 3520 backpack as pole
+        lift pole
+        drop 'self' LeftHand    
+        wait 500
+    endif
+endif
+clearsysmsg 
+hotkey 'Use item in hand'
+waitfortarget
+target self
+wait 8000
+
+if findtype 'fish' backpack as stake or findtype 17159 backpack as stake or findtype 17158 backpack as stake or findtype 17155 backpack as stake or findtype 17604 backpack as stake or findtype 17606 backpack as stake
+    dclicktype 'dagger' backpack
+    waitfortarget 
+    target stake
+endif
+if findtype 5901 backpack as why or findtype 5905 backpack as why or findtype 5899 backpack as why or findtype 5903 backpack as why
+    lift why
+    wait 650
+    droprelloc 0 0 0
+endif
+
+loop
+

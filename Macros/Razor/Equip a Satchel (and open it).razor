@@ -1,0 +1,11 @@
+# Equip the Satchel
+if findtype "utility belt" backpack as mySatchel
+    lift mySatchel 1
+    drop self firstvalid
+    wait 650
+endif
+
+# Open the Satchel
+if findtype "utility belt" true as mySatchel
+    dclick mySatchel
+endif

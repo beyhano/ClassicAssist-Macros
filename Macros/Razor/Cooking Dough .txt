@@ -1,0 +1,95 @@
+#need cook table and 1-2 pitcher
+#cooks table with withdrawal amount 5pce 
+#takes water primarily from water trough and when missing so from cook table
+#last edit 17.03.2025
+#
+while skill 'cooking' <100
+
+clearsysmsg
+
+if not findtype "cooks table" true
+    overhead 'No Cook table'
+    stop
+endif
+
+if not findtype "frypan" backpack
+    overhead 'No Frypan'
+    stop
+endif
+
+if not findtype "pitcher of water" backpack and not findtype "glass pitcher" backpack
+        overhead "No Pitcher"
+        stop
+endif
+
+if not findtype "open sack of flour" backpack
+    if findtype "cooks table" as table
+        dclick table
+        waitforgump 111922706 //cooks table 29357
+        gumpresponse 29 //sack of flour
+        wait 400
+        gumpclose 111922706
+       
+        if insysmsg "you don't have any of that"
+            overhead 'Flour is missing from the cook table'
+            stop
+        endif
+    endif
+    while findtype "sack of flour" backpack as flour
+        dclick flour
+        wait 400
+    endwhile
+endif
+   
+if not findtype "pitcher of water" backpack
+    
+    if findtype "glass pitcher" backpack as empty and findtype "water trough" true as water
+        dclick empty
+        waitfortarget 
+        target water
+        wait 500
+    
+
+        elseif findtype "cooks table" as table and not findtype "water trough" true
+        dclick table
+        waitforgump 111922706
+        gumpresponse 155 //next page
+        waitforgump 111922706
+        gumpresponse 155 //next page
+        waitforgump 111922706
+        gumpresponse 75 //water
+        wait 300
+        gumpclose 111922706
+       
+        wait 200
+        if insysmsg "you don't have any of that"
+            overhead 'Water is missing from the cook table'
+            stop
+        endif
+    endif
+endif
+
+while findtype "pitcher of water" backpack and findtype "open sack of flour" backpack and findtype "frypan" backpack as frypan
+    dclick frypan
+    wait 300
+    waitforgump 949095101 //cooking menu
+    gumpresponse 8 //cooking menu ingredients
+    waitforgump 949095101
+    gumpresponse 9 //dough
+    wait 3000
+    gumpclose 949095101  
+endwhile
+
+
+if findtype "dough" backpack as dough and findtype "cooks table" as table
+            dclick table
+            waitforgump 111922706
+            gumpresponse 152 //add
+            waitfortarget 
+            target dough
+            wait 300
+            clearall
+            gumpclose 111922706
+endif
+    
+endwhile 

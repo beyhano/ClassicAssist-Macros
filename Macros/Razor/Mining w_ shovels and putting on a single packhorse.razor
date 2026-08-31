@@ -1,0 +1,41 @@
+# Mining w/ shovels putting on a single packhorse by Jaseowns
+# UO Unchained
+clearsysmsg 
+while not dead
+    wait 500
+    if diffweight <= 30 and findtype 291 true 0 as jaseowns_Packhorse
+        if findtype 6585 backpack as jaseowns_Ore
+            lift jaseowns_Ore 60000
+            drop jaseowns_Packhorse -1 -1 -1
+            wait 650
+        endif
+    endif
+   
+    if not targetexists
+        if findtype 3897 backpack as item
+            dclick item
+            wft 250
+        else
+            overhead "Out of shovels" 34
+            wait 5000
+            replay
+        endif
+    endif
+    if targetexists
+        hotkey "Target Self"
+        for 100
+            if insysmsg "You dig"
+                overhead "ore!" 89
+                break
+            elseif insysmsg "You loosen"
+                overhead "Failed!" 34
+                break
+              elseif insysmsg "not enough"
+                overhead "Time to move!" 76
+                wait 1000
+                break
+              endif
+              wait 100
+        endfor
+    endif
+endwhile

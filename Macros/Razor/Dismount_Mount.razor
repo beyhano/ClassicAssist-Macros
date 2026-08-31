@@ -1,0 +1,14 @@
+if not varexist mount
+    overhead "set yo mount" 89
+    setvar mount    
+endif
+
+if mounted
+    overhead "DISMOUNTING" 89
+    hotkey "Dismount"
+    wait 650
+else
+    overhead "MOUNTING" 89    
+    dclick mount
+    wait 650
+endif

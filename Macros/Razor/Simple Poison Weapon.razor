@@ -1,0 +1,22 @@
+if findtype 'kryss' backpack as ting
+    @setvar myWeapon ting
+endif
+
+if lhandempty
+    lift myWeapon
+    drop 'self' RightHand
+endif
+
+if findtype 'Green Potion' backpack as psn
+    useskill 'Poisoning'
+    wft 500
+    target psn
+    wft 500
+    target myWeapon
+    wait 3000
+    if insysmsg 'You fail'
+        loop
+    elseif insysmsg 'You apply'
+        break
+    endif
+endif

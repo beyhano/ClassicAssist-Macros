@@ -1,0 +1,18 @@
+# Use bandage on a loop to heal tank pet
+
+if not varexist myTankPet
+    @setvar myTankPet
+endif
+
+if findtype "clean bandage%s%" backpack as aids
+    dclick aids
+    wft 500
+    target myTankPet
+endif        
+
+if insysmsg "You begin applying"
+    wait 6000
+    loop
+elseif insysmsg "not damaged"
+   break
+endif

@@ -1,0 +1,46 @@
+# Smelting ore 1 by 1 to gain skill by Jaseowns
+# UO Unchained
+
+# Iron Ore 6585
+if findtype 6585 backpack as item
+    getlabel item desc
+    overhead desc
+    lift item 1
+    drop backpack 0 0 0
+    wait 650
+    getlabel item desc
+    overhead desc
+    dclick item
+    wft 500
+    # Forge 4017
+    if findtype "forge" true as jaseForge
+        target jaseForge
+    endif
+    wait 500
+    replay
+endif
+
+if findtype 6584 backpack as item
+    getlabel item desc
+    overhead desc
+    lift item 1
+    drop backpack 0 0 0
+    wait 650
+    getlabel item desc
+    overhead desc
+    dclick item
+    wft 500
+    # Forge 4017
+    if findtype "forge" true as jaseForge
+        target jaseForge
+    endif
+    wait 500
+    replay
+endif
+
+if findtype 6583 backpack as smallOre
+    lift smallOre 60000
+    drop backpack -1 -1 -1
+    wait 1000
+    replay
+endif

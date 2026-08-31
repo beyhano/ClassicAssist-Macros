@@ -1,0 +1,48 @@
+############
+# Training Magery to 100
+# DO NOT have a wand/tribal staff in hand -
+# It will mess up the meditation process
+# Yes you have to refresh your own regs right now
+############
+
+setvar! tgtDummy 0x81CD 
+# This is the serial for Hector the dummy NPC
+
+if skill 'Magery' < 100
+    if skill 'Magery' < 60
+        if mana > 20
+            hotkey 'Mind Blast'
+            wft
+            target tgtDummy
+            wait 500
+        endif
+        if mana < 20
+            hotkey 'Meditation'
+            wait 500
+        endif
+    elseif skill 'Magery' < 75
+        if mana > 20
+            hotkey 'Energy Bolt'
+            wft
+            target tgtDummy
+            wait 500
+        endif
+    elseif skill 'Magery' < 100
+        if findtype "a water elemental" true
+            say 'a water elemental release'
+            wait 200
+        endif
+        if mana > 50
+            hotkey "Water Elemental"
+            wait 5000
+        endif
+        if mana < 50
+            hotkey 'Meditation'
+            wait 500
+        endif
+    endif
+    wait 500
+    loop
+else
+    overhead 'Magery's 100 bro' 88
+endif

@@ -1,0 +1,42 @@
+# Auto Skin and Loot by Jaseowns
+# UO Unchained
+
+# Add items to the list to auto loot using >info
+removelist jaseowns_LootToLoot
+createlist jaseowns_LootToLoot
+pushlist jaseowns_LootToLoot "gold coin"
+pushlist jaseowns_LootToLoot "cut up leather"
+
+while findtype "corpse" true as jaseowns_Corpse
+    if findtype "dagger" backpack as jaseowns_Dagger
+        dclick jaseowns_Dagger
+        wft 500
+        target jaseowns_Corpse
+        wait 650
+    endif
+    ignore jaseowns_Corpse
+endwhile
+
+if findtype "scissors" backpack as jaseowns_Scissors
+    while findtype "pil%es/e% of hides" as jaseowns_BackpackHides
+        dclick jaseowns_Scissors
+        wft 500
+        target jaseowns_BackpackHides
+        wait 650
+        ignore jaseowns_BackpackHides
+    endwhile
+endif
+
+foreach jaseowns_LootItemIndex in jaseowns_LootToLoot
+    while findtype jaseowns_LootItemIndex backpack as jaseowns_LootItem
+        ignore jaseowns_LootItem
+    endwhile
+    
+    while findtype jaseowns_LootItemIndex as jaseowns_ItemToGrab
+        hotkey "Grab Item"
+        waitfortarget 500
+        target jaseowns_ItemToGrab
+        wait 650
+        ignore jaseowns_ItemToGrab
+    endwhile
+endfor

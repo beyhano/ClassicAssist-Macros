@@ -1,0 +1,18 @@
+useskill "hiding"
+wait 500
+if skill 'hiding' >= 80
+    if hidden
+        overhead 'Hidden' 89
+        wait 10000
+        useskill "stealth"
+   else
+        overhead 'Not Hidden' 89
+    endif
+endif
+wait 10000
+
+if skill 'hiding' = 100 and skill 'stealth' = 100
+    stop
+endif
+
+loop

@@ -1,0 +1,14 @@
+while not dead
+    if not targetexists    
+        skill 'AnimalTaming'
+        wait 250
+    endif
+    if targetexists
+        hotkey 'target closest grey'
+    endif 
+    if insysmsg 'you start'
+        wait 10000
+    endif
+
+    clearsysmsg 
+endwhile

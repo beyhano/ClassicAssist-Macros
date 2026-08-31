@@ -1,0 +1,18 @@
+# Auto Dust and Consume by Jaseowns
+# UO Unchained
+if not targetexists and findtype "sewing kit" backpack as jaseowns_Item
+    dclick jaseowns_Item
+    waitforgump 949095101 500
+    gumpresponse 63 949095101
+endif
+while targetexists 
+    wft 500
+endwhile
+if targetexists
+    hotkey "Cancel Current Target"
+endif
+if findtype "faery dust" backpack as jaseowns_Item
+    getlabel jaseowns_Item desc
+    overhead "Dust: {{desc}}" 89
+    dclick jaseowns_Item
+endif

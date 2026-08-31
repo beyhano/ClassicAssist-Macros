@@ -1,0 +1,20 @@
+# Unlock a Treasure Chest by Jaseowns
+# UO Unchained
+if findtype "metal chest" true as jaseowns_Chest
+    getlabel jaseowns_Chest desc
+    if "Lockpick" in desc
+        if findtype 5372 backpack as jaseowns_Lockpicks
+            dclick jaseowns_Lockpicks
+            wft 500
+            target jaseowns_Chest
+            wait 2000
+            replay
+        endif
+        overhead "We need to lockpick this" 34
+    else
+        dclick jaseowns_Chest
+    endif
+else    
+    overhead "No chest found!" 34
+endif
+

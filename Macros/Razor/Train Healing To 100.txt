@@ -1,0 +1,24 @@
+# Go to the Britain Docks, near the shallow water and the dolphin. 
+# Stand on the dock next to the rope ladder(1445,1761,-2). The rope ladder lets you out of the water, but not into it(and does NON-lethal damage).
+# Rope ladder damage cannot kill you. 
+# Bring ~1000 bandages. It ususally takes me ~680 bandages to GM from 50.0 Healing
+
+
+while skill "Healing" < 100
+   
+if findtype "clean bandage%s%" backpack as bandages
+    
+walk 'East, Running'
+walk 'East, Running'
+walk 'East, Running'
+walk 'East, Running'
+walk 'East, Running'
+walk 'East, Running'
+
+dclick bandages  
+waitfortarget
+target 'self'
+wait 5500
+endif
+
+endwhile

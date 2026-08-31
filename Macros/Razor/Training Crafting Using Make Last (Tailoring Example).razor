@@ -1,0 +1,62 @@
+# Training Tailoring using Make Last by Jaseowns
+# UO Unchained
+clearsysmsg 
+settimer skillGainCheckTimer 0
+while skill "Tailoring" < 120
+    if findtype "sewing kit" backpack as jaseowns_Tools
+        dclick jaseowns_Tools
+        wait 500
+        gumpresponse 21
+        wait 2000
+        if insysmsg "Gain chance"
+            settimer skillGainCheckTimer 0
+        endif
+    endif
+    
+    if timer skillGainCheckTimer >= 10000
+        overhead "we are not gaining" 34
+        stop
+    endif
+    
+    if findtype "studded gorget" backpack as item
+        if findtype "scissors" backpack as siz
+            dclick siz
+            wft 500
+            target item
+        endif   
+    endif
+    
+    
+    if findtype 5981 backpack 2001 as item
+        if findtype "scissors" backpack as siz
+            dclick siz
+            wft 500
+            target item
+        endif   
+    endif
+    
+    if findtype "robe" backpack as item
+        if findtype "scissors" backpack as siz
+            dclick siz
+            wft 500
+            target item
+        endif
+    endif
+    
+    if findtype "cloak" backpack as item
+        if findtype "scissors" backpack as siz
+            dclick siz
+            wft 500
+            target item
+        endif
+    endif
+    
+    if findtype "fancy shirt" backpack as item
+        if findtype "scissors" backpack as siz
+            dclick siz
+            wft 500
+            target item
+        endif
+    endif
+endwhile
+

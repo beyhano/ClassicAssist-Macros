@@ -1,0 +1,33 @@
+#####
+##  Bandage Check Timer
+####
+if not timerexists 'DaKlue_aidTimer'
+    createtimer 'DaKlue_aidTimer'
+endif
+@setvar! DaKlue_aidTimerCD 5000
+settimer DaKlue_aidTimer DaKlue_aidTimerCD
+
+while not dead 
+    
+# Using Bandaids
+if skill "Healing" > 0
+    if timer DaKlue_aidTimer >= DaKlue_aidTimerCD
+        if findtype "clean bandage%s%" backpack as aids
+            if hp < maxhp
+                dclick aids
+                wft 500
+                hotkey 'Target Self'
+                settimer DaKlue_aidTimer 0
+            elseif poisoned
+                dclick aids
+                wft 500
+                hotkey 'Target Self'
+                settimer DaKlue_aidTimer 0
+            endif
+        else
+            overhead "No bandages" 34
+        endif
+    endif
+endif
+
+endwhile

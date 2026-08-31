@@ -1,0 +1,30 @@
+#Author DaKlue
+#UO Unchained
+#Need training box and about 200 lockpicks
+
+@setvar! GlobalTimeOut 650
+while not dead
+    if skill 'lockpicking' < 100
+        if findtype 'wooden box' backpack 2096 as trainer
+            dclick trainer
+            wait GlobalTimeOut
+        endif
+        
+        if not findtype 5372 backpack
+            overhead 'Out Of Lockpicks!'
+        endif
+
+        if findtype 5372 backpack as picks and findtype 'wooden box' backpack 2096 as trainer
+            while not targetexists
+                dclick picks
+            endwhile
+            if targetexists
+                target trainer
+            endif
+            wait GlobalTimeOut
+        endif
+    else
+        overhead 'Lockpicking Done!'
+        stop
+    endif
+endwhile

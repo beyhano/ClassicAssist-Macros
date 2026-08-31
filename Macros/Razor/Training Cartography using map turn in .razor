@@ -1,0 +1,23 @@
+# Training Cartography using map turn in by Jaseowns
+# UO Unchained
+clearsysmsg 
+settimer gainTimer 0
+while not dead
+    if findtype "map" backpack as item
+        dclick item
+        getlabel item desc
+        if "drawn" in desc
+            wait 400
+            lift item
+            drop 0x14 -1 -1 -1
+            wait 650
+        elseif insysmsg "gain"
+            sysmsg "Gain attempt!"
+            settimer gainTimer 0
+        elseif timer gainTimer > 10000
+            sysmsg "All done gaining!" 34
+            stop
+        endif
+    endif
+    wait 200
+endwhile

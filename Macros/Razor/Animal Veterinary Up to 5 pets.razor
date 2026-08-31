@@ -1,0 +1,137 @@
+@setvar! totalPets 2
+
+#####
+##  Veterinary Bandage Check Timer
+####
+if not timerexists 'DaKlue_vetTimer'
+    createtimer 'DaKlue_vetTimer'
+endif
+@setvar! DaKlue_vetTimerCD 5000
+settimer DaKlue_vetTimer DaKlue_vetTimerCD
+
+@setvar! minimumWaitForPing 250
+
+# Pets
+if totalPets = 1 or totalPets = 2 or totalPets = 3 or totalPets = 4 or totalPets = 5
+@setvar! daklues_PetOne
+    if targetexists
+        //do nothing
+    endif
+endif
+if totalPets = 2 or totalPets = 3 or totalPets = 4 or totalPets = 5
+@setvar! daklues_PetTwo
+    if targetexists
+        //do nothing
+    endif
+endif
+if totalPets = 3 or totalPets = 4 or totalPets = 5
+    @setvar! daklues_PetThree
+    if targetexists
+        //do nothing
+    endif
+endif
+if totalPets = 4 or totalPets = 5
+@setvar! daklues_PetFour
+    if targetexists
+        //do nothing
+    endif
+endif
+if totalPets = 5
+    @setvar! daklues_PetFive
+    if targetexists
+        //do nothing
+    endif
+endif
+
+
+while not dead 
+    
+    ###############
+    ### Pet Healing
+    ###############
+    if timer DaKlue_vetTimer >= DaKlue_vetTimerCD 
+        if findtype "clean bandage%s%" backpack as item and totalPets = 1 or totalPets = 2 or totalPets = 3 or totalPets = 4 or totalPets = 5
+             while not targetexists 
+                dclick item
+                wait minimumWaitForPing
+            endwhile
+            while targetexists 'beneficial' 
+                target daklues_PetOne
+                overhead "Heal Target" 66 daklues_PetOne
+            endwhile
+            if insysmsg "you begin"
+                settimer DaKlue_vetTimer 0
+                
+            endif
+        endif
+    endif
+    
+    if timer DaKlue_vetTimer >= DaKlue_vetTimerCD 
+        if findtype "clean bandage%s%" backpack as item and totalPets = 2 or totalPets = 3 or totalPets = 4 or totalPets = 5
+             while not targetexists 
+                dclick item
+                wait minimumWaitForPing
+            endwhile
+            while targetexists 'beneficial' 
+                target daklues_PetTwo
+                overhead "Heal Target" 66 daklues_PetTwo
+            endwhile
+            if insysmsg "you begin"
+                settimer DaKlue_vetTimer 0
+                
+            endif
+        endif
+    endif
+    
+    if timer DaKlue_vetTimer >= DaKlue_vetTimerCD 
+        if findtype "clean bandage%s%" backpack as item and totalPets = 3 or totalPets = 4 or totalPets = 5
+             while not targetexists 
+                dclick item
+                wait minimumWaitForPing
+            endwhile
+            while targetexists 'beneficial' 
+                target daklues_PetThree
+                overhead "Heal Target" 66 daklues_PetThree
+            endwhile
+            if insysmsg "you begin"
+                settimer DaKlue_vetTimer 0
+                
+            endif
+        endif
+    endif
+    
+    if timer DaKlue_vetTimer >= DaKlue_vetTimerCD 
+        if findtype "clean bandage%s%" backpack as item and totalPets = 4 or totalPets = 5
+             while not targetexists 
+                dclick item
+                wait minimumWaitForPing
+            endwhile
+            while targetexists 'beneficial' 
+                target daklues_PetFour
+                overhead "Heal Target" 66 daklues_PetFour
+            endwhile
+            if insysmsg "you begin"
+                settimer DaKlue_vetTimer 0
+                
+            endif
+        endif
+    endif
+    
+    if timer DaKlue_vetTimer >= DaKlue_vetTimerCD 
+        if findtype "clean bandage%s%" backpack as item and totalPets = 5
+             while not targetexists 
+                dclick item
+                wait minimumWaitForPing
+            endwhile
+            while targetexists 'beneficial' 
+                target daklues_PetFive
+                overhead "Heal Target" 66 daklues_PetFive
+            endwhile
+            if insysmsg "you begin"
+                settimer DaKlue_vetTimer 0
+                
+            endif
+        endif
+    endif              
+
+endwhile

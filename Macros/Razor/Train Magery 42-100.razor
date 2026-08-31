@@ -1,0 +1,52 @@
+ #if your magery is lower then 42 go buy it from the mage npc for 420 gold
+ while skill 'Magery' < 46.5
+        if mana > 11
+        hotkey 'Lightning'
+        wft
+        target #add your target here
+        wait 800
+        endif
+        if mana < 11 and not findbuff "actively meditating"
+            hotkey 'Meditation'
+        wait 800
+        endif
+    endwhile 
+ while skill 'Magery' < 75
+        if mana > 20
+        hotkey 'Invisibility'
+        wft
+        hotkey 'Target Self'
+        wait 800
+        endif
+        if mana < 20 and not findbuff "actively meditating"
+            hotkey 'Meditation'
+        wait 800
+        endif
+    endwhile 
+    
+    while skill 'Magery' < 89.3
+        if mana > 40
+        hotkey 'Flamestrike'
+        wft 
+        target 0x613B
+        wait 800
+        endif
+        if mana < 40 and not findbuff "actively meditating"
+            hotkey 'Meditation'
+        wait 800
+        endif
+    endwhile 
+        while skill 'Magery' < 100
+        if mana > 50
+        hotkey 'Water Elemental'
+            wait 500
+        endif 
+        if findtype "a water elemental"
+                say 'a water elemental release'
+            wait 800
+        endif
+        if mana < 50 and not findbuff "actively meditating"
+            hotkey 'Meditation'
+            wait 800
+        endif
+    endwhile

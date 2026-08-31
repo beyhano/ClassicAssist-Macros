@@ -1,0 +1,10 @@
+   while skill "TasteIdentification" < 100
+    if not targetexists
+       useskill "TasteIdentification"
+       wft 500
+    endif
+    if findtype "bread loa%ves/f%" backpack as food
+        target food
+        wait 1000
+    endif
+    endwhile

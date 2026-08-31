@@ -1,0 +1,20 @@
+if hits < 50 and mana > 11
+        cast "Greater Heal"
+        wft 2000
+        target self
+        wait 350
+    endif
+
+if mana < 50 and not findbuff 'Actively Meditating'
+   useskill "Meditation"
+   wait 1000
+   loop
+endif
+
+while hits > 45 and mana > 40
+    cast "Flamestrike"
+    wft 4000
+    target self
+    wait 350
+endwhile
+loop

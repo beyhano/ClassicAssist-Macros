@@ -1,0 +1,15 @@
+if weight > maxweight
+    dclicktype '6585'
+    waitfortarget
+    if findtype "a fire beetle" true as firebeetle
+    target firebeetle
+    endif
+    wait 500
+    organizer '20'
+endif    
+
+dclicktype '3897'
+waitfortarget
+hotkey 'Target Self'
+wait 2000
+loop

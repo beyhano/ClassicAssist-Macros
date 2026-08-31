@@ -1,0 +1,57 @@
+# Put away at bank by Jaseowns
+# UO Unchained
+if not varexist bankVaultBag
+    overhead "we need to set it bro" 89
+    setvar bankVaultBag    
+endif
+
+removelist jaseowns_PutAwayLootList
+if not listexists jaseowns_PutAwayLootList
+    createlist jaseowns_PutAwayLootList
+
+    # Gold
+    pushlist jaseowns_PutAwayLootList 3821
+
+    # Gems
+    pushlist jaseowns_PutAwayLootList 3862
+    pushlist jaseowns_PutAwayLootList 3856
+    pushlist jaseowns_PutAwayLootList 3878
+    pushlist jaseowns_PutAwayLootList 3859
+    pushlist jaseowns_PutAwayLootList 3861
+    pushlist jaseowns_PutAwayLootList 3857
+    pushlist jaseowns_PutAwayLootList 3855
+    pushlist jaseowns_PutAwayLootList 3864
+    pushlist jaseowns_PutAwayLootList 3877
+endif
+
+say "Bank"
+wait 100
+
+clearsysmsg 
+dclicktype "dagger" backpack
+wft 500
+target bankVaultBag
+
+getlabel backpack jaseowns_PingCheck
+
+if insysmsg "You can't use a bladed item on that."
+    overhead "We found our bag bro!" 89
+
+    dclick bankVaultBag
+    wait 650
+
+    foreach jaseowns_PutAwayLootIndex in jaseowns_PutAwayLootList
+        while findtype jaseowns_PutAwayLootIndex backpack as jaseowns_PutAwayItem
+            lift jaseowns_PutAwayItem 60000
+            drop bankVaultBag -1 -1 -1
+            wait 650
+        endwhile
+    endfor
+    
+endif
+
+
+# You would use Agent Restock 1 and setup what you want to pull out
+#restock 1
+#wft 500
+#target bankVaultBag

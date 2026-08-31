@@ -1,0 +1,49 @@
+# UO Unchained
+# Bandage Loop and Auto Attack Non-Friendly (War Mode Only)
+
+// Initialize timers
+if not timerexists simple_BandaidTimer
+    settimer simple_BandaidTimer 10000
+endif
+
+if not timerexists checkTargetTimer
+    settimer checkTargetTimer 5000
+endif
+
+while not dead
+
+    // --------------------
+    // Bandage Self Loop
+    // --------------------
+    if timer simple_BandaidTimer >= 10000
+        if hp < 90
+            hotkey "Bandage Self"      // Must be bound to bandage self hotkey
+            wait 200
+            if insysmsg "You begin applying the bandages."
+                settimer simple_BandaidTimer 0
+            endif
+        endif
+    endif
+
+    if insysmsg "You finish applying" or insysmsg "You heal what little" or insysmsg "barely help"
+        settimer simple_BandaidTimer 10000
+    endif
+
+    // --------------------
+    // Target and Attack Nearest Non-Friendly (Only in War Mode)
+    // --------------------
+    if warmode
+        if timer checkTargetTimer >= 200
+            settimer checkTargetTimer 0
+    hotkey "Target closest non-friendly"   
+            wait 200
+            if insysmsg "no one found"
+                // do nothing
+            else
+                attack lasttarget
+            endif
+        endif
+    endif
+
+    wait 50
+endwhile

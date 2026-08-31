@@ -1,0 +1,7 @@
+# Train Spirit Speak by Jaseowns
+# UO Unchained
+# Change line 4 to your desired skill value
+while skill "SpiritSpeak" < 120
+    useskill "SpiritSpeak"
+    wait 1000
+endwhile

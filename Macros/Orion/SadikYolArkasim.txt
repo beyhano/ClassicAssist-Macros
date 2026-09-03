@@ -1,0 +1,95 @@
+# Sadık Yol Arkadaşı - Az Konuşan Deri & Gold Makrosu
+
+CLEAVER = 0x0EC3
+SCISSORS = 0x0F9F
+CORPSE  = 0x2006
+GOLD    = 0x0EED
+
+HIDE_IDS = [0x1078, 0x1079]
+
+# --- ALIAS KONTROLLERİ ---
+if not FindAlias("pack"):
+    HeadMsg("Dostum, esyalari koyacagim BAGi secer misin?", "self", 88)
+    PromptAlias("pack")
+    Pause(1000)
+
+if not FindAlias("cleaver"):
+    HeadMsg("Cesetleri neyle kesecegim? Bicagi sec.", "self", 88)
+    PromptAlias("cleaver")
+    Pause(1000)
+
+if not FindAlias("scissors"):
+    HeadMsg("Derileri kirpmak icin makasi secmelisin.", "self", 88)
+    PromptAlias("scissors")
+    Pause(1000)
+
+ClearIgnoreList()
+HeadMsg("Yol arkadasin hazır! Gozum cesetlerde...", "self", 68)
+
+while not Dead():
+    # Karakter Ağırlık Kontrolü (404 Sınırı)
+    if Weight() >= 404:
+        HeadMsg("Dostum canta agzina kadar doldu! Ben duruyorum.", "self", 33)
+        SysMessage("AGIRLIK SINIRI ASILDI. MAKRO GUVENLE DURDURULDU!")
+        break
+
+    while FindType(CORPSE, 2):
+        corpse = GetAlias("found")
+
+        if Weight() >= 404:
+            break
+
+        # 1. AŞAMA: Cesedi Açma
+        CancelTarget()
+        Pause(300)
+        UseObject(corpse)
+        WaitForContents(corpse, 2000)
+        Pause(1000)
+
+        # 2. AŞAMA: Altın Toplama
+        if FindType(GOLD, -1, corpse):
+            SetAlias("gold", "found")
+            MoveItem("gold", "pack", -1)
+            HeadMsg("Altinlari aldim.", "self", 68) # Kısa yeşil bilgilendirme
+            Pause(1000)
+
+        # 3. AŞAMA: Bıçakla Cesedi Kesme (Skinning)
+        CancelTarget()
+        Pause(300)
+        UseObject("cleaver")
+        if WaitForTarget(3000):
+            Pause(500)
+            Target(corpse)
+            Pause(1000)
+
+        WaitForContents(corpse, 2000)
+        Pause(1000)
+
+        # 4. AŞAMA: Pile of Hides Derilerini Toplama
+        for hide_id in HIDE_IDS:
+            if FindType(hide_id, -1, corpse):
+                SetAlias("hide", "found")
+                MoveItem("hide", "pack", -1)
+                Pause(1000)
+
+        # 5. AŞAMA: Çantadaki Ham Derileri Makasla Kesme
+        for hide_id in HIDE_IDS:
+            if FindType(hide_id, -1, "pack"):
+                SetAlias("ham_deri", "found")
+                CancelTarget()
+                Pause(300)
+                UseObject("scissors")
+                if WaitForTarget(3000):
+                    Pause(300)
+                    Target("ham_deri")
+                    Pause(1000)
+
+        # Ağırlık bilgilendirmesi (Sadece kritik durumlarda uyarır)
+        if Weight() >= 320 and Weight() < 404:
+            HeadMsg("Farkinda misin bilmiyorum ama agirlasiyoruz...", "self", 53)
+
+        # Bu cesetle iş bitti, hafızadan yoksay ve sıradakine geç
+        IgnoreObject(corpse)
+        Pause(1000)
+
+    Pause(1000)

@@ -1,6 +1,6 @@
 # Name: Train Necromancy (ServUO)
 # Description: Train Necromancy to cap using ServUO spell requirements. Uses cheapest no-fizzle spell per skill bracket, meditates when low mana.
-# Author: Mordor
+# Author: AreS
 # Era: Any
 
 GOAL = int(SkillCap('Necromancy'))

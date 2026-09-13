@@ -18,7 +18,7 @@ def cast_train(name, mana_cost, needs_target):
         return False
     Cast(name)
     if needs_target:
-        WaitForTarget(1500)
+        WaitForTarget(5000)
         Target(GetAlias('train_target'))
     Pause(2000 + PING)
     return True
@@ -41,8 +41,9 @@ while not Dead('self') and Skill('Necromancy') < GOAL:
         # Pain Spike: 20 req, 5 mana, cheapest spam 20-40
         cast_train('Pain Spike', 5, True)
     elif s < 50:
-        # Horrific Beast: 40 req, 11 mana, no target, no fizzle stalls
-        cast_train('Horrific Beast', 11, False)
+        # Mind Rot: 30 req, 17 mana, hedefli, transformsuz (Horrific Beast formu
+        # normal spell'leri bloklar: "You cannot cast that spell in this form.")
+        cast_train('Mind Rot', 17, True)
     elif s < 60:
         # Poison Strike: 50 req, 17 mana
         cast_train('Poison Strike', 17, True)

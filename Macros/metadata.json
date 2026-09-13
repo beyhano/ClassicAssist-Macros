@@ -1035,6 +1035,18 @@
     "ModifiedDate": "2026-08-19T21:59:52.353490+00:00"
   },
   {
+    "Name": "Train Necromancy (ServUO)",
+    "Description": "Train Necromancy to cap using ServUO spell requirements. Uses cheapest no-fizzle spell per skill bracket, meditates when low mana.",
+    "Author": "Mordor",
+    "Era": "Any",
+    "Id": "6886c68d-aead-4876-ba94-5a22e2ec1c8c",
+    "Categories": "Skills\\train-necromancy-servuo.py",
+    "FileName": "Skills\\train-necromancy-servuo.py",
+    "Size": 1789,
+    "SHA1": "FEDBF5B34558AF16DAB59F29CE8AE14EF06D8CA2",
+    "ModifiedDate": "2026-09-13T13:24:42.191061+00:00"
+  },
+  {
     "Name": "Combine Stacks",
     "Description": "Combine multiple stacks of the same item id into one (or more) stacks of 60000",
     "Author": "Reetus",

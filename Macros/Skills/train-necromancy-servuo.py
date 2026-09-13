@@ -54,5 +54,10 @@ while not Dead('self') and Skill('Necromancy') < GOAL:
         # Strangle: 65 req, 29 mana
         cast_train('Strangle', 29, True)
     else:
-        # Lich Form: 70 req, 23 mana, no target, trains to cap
-        cast_train('Lich Form', 23, False)
+        # Lich Form: 70 req, 23 mana, no target, trains to cap.
+        # Lich formu cani eritir: %60 altina dusunce Spirit Speak ile geri cek.
+        if Hits('self') < (MaxHits('self') * 0.6):
+            UseSkill('Spirit Speak')
+            Pause(2000 + PING)
+        else:
+            cast_train('Lich Form', 23, False)

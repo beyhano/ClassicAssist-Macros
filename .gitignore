@@ -2,3 +2,4 @@
 .venv/
 # metadata yedek dosyalari
 *.bak_metadata
+__pycache__/

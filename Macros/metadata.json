@@ -379,9 +379,9 @@
     "Id": "6a8a6c63-59a7-448d-bdae-2b88ce9dd3ce",
     "Categories": "Custom",
     "FileName": "Custom\\pvp-heal.py",
-    "Size": 606,
-    "SHA1": "406F676FE9B871C270C33EFD4AFC7CFA72DF6B3C",
-    "ModifiedDate": "2026-08-17T16:45:52.238784+00:00"
+    "Size": 884,
+    "SHA1": "7E690F10AEDAAA4E9E421D9F2362E76CB946946C",
+    "ModifiedDate": "2026-09-15T21:23:58.234472+00:00"
   },
   {
     "Name": "Smelt Ore",
@@ -406,6 +406,18 @@
     "Size": 1213,
     "SHA1": "118365AE93B6C46214CB5BF41BA377A05F5121CA",
     "ModifiedDate": "2026-08-17T16:45:52.239785+00:00"
+  },
+  {
+    "Name": "Self Heal (Bandage + Spirit Speak fallback)",
+    "Description": "Bandajla can doldurur; bandaj yoksa veya can %30 altindaysa Spirit Speak kullanir (Spirit Speak icin yakininda corpse gerekir).",
+    "Author": "AreS",
+    "Era": "Any",
+    "Id": "96cc10ce-6dbd-477b-b54c-7969795d7e32",
+    "Categories": "Custom\\self-heal-bandage-spiritspeak.py",
+    "FileName": "Custom\\self-heal-bandage-spiritspeak.py",
+    "Size": 925,
+    "SHA1": "45ACF8045FF61342749370727617056F1650F95E",
+    "ModifiedDate": "2026-09-15T21:23:58.234472+00:00"
   },
   {
     "Name": "Boat Control UI",
@@ -1045,6 +1057,18 @@
     "Size": 2089,
     "SHA1": "D39052E6E7F67AF1A31A27395DA27E7CE05C3789",
     "ModifiedDate": "2026-09-13T15:31:52.048038+00:00"
+  },
+  {
+    "Name": "Train Spirit Speak",
+    "Description": "Spam Spirit Speak to cap. Gains are faster near corpses (it heals you when corpses are in range).",
+    "Author": "AreS",
+    "Era": "Any",
+    "Id": "603b7ec6-a8d8-4156-a069-b3e29ba700fa",
+    "Categories": "Skills\\train-spiritspeak.py",
+    "FileName": "Skills\\train-spiritspeak.py",
+    "Size": 325,
+    "SHA1": "241A615A3D0073004B0F3DFE379BE75D50FCF59C",
+    "ModifiedDate": "2026-09-15T21:23:58.239804+00:00"
   },
   {
     "Name": "Combine Stacks",
